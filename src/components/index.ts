@@ -4,3 +4,5 @@ export * from './Card/Card.tsx';
 export * from './NavBar/NavBar.tsx';
 export * from './useRef/FocusHelper.tsx';
 export * from './useMemo/Calculo.tsx';
+export * from './useCallback/BotonReset.tsx';
+export * from './Modal/Modal.tsx';

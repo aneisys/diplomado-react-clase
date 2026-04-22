@@ -1,0 +1,22 @@
+.is-invalid {
+  border-color: red;
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
+}
+
+
+.form-group {
+  margin-bottom: 1rem;
+  display: 'flex';
+  flex-direction: 'column';
+}
+
+.form-control {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

@@ -1,6 +1,7 @@
 // Ver si es necesario memorizar el cálculo
 
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
+import { BotonReset } from '../useCallback/BotonReset';
 
 export const Calculo = () => {
   const [numeros, setNumeros] = useState<number[]>([1, 2, 3, 4, 5]);
@@ -18,13 +19,21 @@ export const Calculo = () => {
   const calculoMemo = useMemo(() => {
     console.log('Calculando...');
     // Simular un cálculo costoso
-    for (let i = 0; i < 1_000_000; i++) {}
+    for (let i = 0; i < 1_000_000; i++) { /* empty */ }
     return numeros.reduce((a, b) => a * b);
   }, [numeros]);
 
   const agregarNumero = () => {
     setNumeros([...numeros, numeros[numeros.length - 1] + 1]);
   };
+
+  // const reiniciar = () => {
+  //   setNumeros([1, 2, 3, 4, 5]);
+  // }
+
+  const reiniciar = useCallback(() => {
+    setNumeros([1, 2, 3, 4, 5]);
+  }, []);
 
   return (
     <>
@@ -36,6 +45,7 @@ export const Calculo = () => {
         {show ? 'Ocultar' : 'Mostrar'}
       </button>
       <button onClick={agregarNumero}>Agregar número</button>
+      <BotonReset onReset={reiniciar} />
     </>
   );
 };
