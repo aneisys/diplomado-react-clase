@@ -32,8 +32,8 @@ function App() {
       if (!response.ok) throw new Error('Error al obtener los datos');
       const jsonData = await response.json();
       setData(jsonData);
-    } catch (error) {
-      setError(error);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err));
     } finally {
       setLoading(false);
     }

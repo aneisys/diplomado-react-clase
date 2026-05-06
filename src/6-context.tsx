@@ -6,7 +6,7 @@
 // Forma simple pero no correcta
 import './App.css';
 import { NavBar } from './components';
-import { GlobalTodoProvider } from './context';
+// import { GlobalTodoProvider } from './context';
 import { GlobalProvider } from './context/global.provider';
 
 /*interface GlobalContextType {

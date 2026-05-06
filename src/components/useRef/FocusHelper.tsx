@@ -8,7 +8,7 @@ export const FocusHelper = () => {
   const clicCount = useRef<number>(0);
 
   const hanldeFocus = () => {
-    inputRef.current.focus();
+    inputRef.current?.focus();
 
     // Actualizar el valor sin disparar el render
     clicCount.current += 1;
@@ -16,7 +16,7 @@ export const FocusHelper = () => {
   };
 
   useEffect(() => {
-    inputRef.current.focus();
+    inputRef.current?.focus();
   }, []);
 
   return (

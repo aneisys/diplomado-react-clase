@@ -11,7 +11,7 @@ interface Params<T> {
 export const useFetch = <T>(url: string): Params<T> => {
   const [data, setData] = useState<Data<T>>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -26,8 +26,8 @@ export const useFetch = <T>(url: string): Params<T> => {
         const jsonData: T = await response.json();
         setData(jsonData);
         setError(null);
-      } catch (error) {
-        setError(error);
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error(String(err)));
       } finally {
         setLoading(false);
       }

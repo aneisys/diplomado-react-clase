@@ -1,6 +1,5 @@
 //import { useContext } from 'react';
 //import { globalContext } from '../../App';
-import { useGlobalTodoContext } from '../../context';
 import { useGlobalContext } from '../../context/global.context';
 
 // Forma simple pero no correcta

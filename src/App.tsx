@@ -5,7 +5,7 @@ import { TaskForm } from './components/TaskForm/TaskForm';
 import { TaskList } from './components/TaskList/TaskList';
 import { LoginForm } from './components/LoginForm/LoginForm';
 import { authApi, loadToken } from './services/authApi';
-import type { CreateTaskDTO } from './types/task';
+import type { CreateTaskDTO, UpdateTaskDTO } from './types/task';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(!!loadToken());
@@ -22,8 +22,8 @@ function App() {
     setIsLoggedIn(false);
   };
 
-  const handleAddTask = async (data: CreateTaskDTO) => {
-    await addTask(data);
+  const handleAddTask = async (data: CreateTaskDTO | UpdateTaskDTO) => {
+    await addTask(data as CreateTaskDTO);
   };
 
   if (!isLoggedIn) {
