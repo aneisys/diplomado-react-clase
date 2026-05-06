@@ -77,6 +77,33 @@ make down
 | `make shell`   | Entrar al contenedor (shell)                |
 | `make install` | Instalar dependencias dentro del contenedor |
 
+## Despliegue en GitHub Pages
+
+El proyecto incluye un workflow de GitHub Actions que compila y despliega automáticamente en cada push a `main`.
+
+### 1. Configurar GitHub Pages en el repositorio
+
+1. Ve a tu repo en GitHub → **Settings** → **Pages**
+2. En **Source**, selecciona **GitHub Actions**
+3. Guarda
+
+### 2. Hacer push
+
+```bash
+git add .
+git commit -m "config: deploy to GitHub Pages"
+git push origin main
+```
+
+### 3. Verificar despliegue
+
+- Ve a **Actions** en tu repo de GitHub
+- El workflow `Deploy to GitHub Pages` se ejecutará automáticamente
+- Una vez completado, tu app estará en:
+  ```
+  https://aneisys.github.io/diplomado-react-clase/
+  ```
+
 ## Despliegue Local (sin Docker)
 
 Si prefieres no usar Docker:
